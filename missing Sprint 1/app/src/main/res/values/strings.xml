@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Movie Intents</string>
+    <string name="movies">movies</string>
+    <string name="view_favourites">View Favourites</string>
+    <string name="search_movie_by_name">Search Movie By Name</string>
+    <string name="my_favourite_movies">My Favourite Movies</string>
+</resources>
