@@ -8,7 +8,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
-import com.stepasha.movieintents.model.MovieList
+import com.stepasha.movieintents.model.FavoriteMovie
 import kotlinx.android.synthetic.main.activity_favorites.*
 
 
@@ -24,13 +24,13 @@ class FavoritesActivity : AppCompatActivity() {
 
 
         //value the movie in the movie list
-        val movie :MovieList= intent.getSerializableExtra(MainActivity.EXTRA_STRING) as MovieList
+        val movie :FavoriteMovie= intent.getSerializableExtra(MainActivity.EXTRA_STRING) as FavoriteMovie
 
 
         //null exception
-        if (movie.name!=getString(R.string.search_movie_by_name)) {
+        if (movie.title!=getString(R.string.search_movie_by_name)) {
 
-            edit_entry.setText(movie.name)
+            edit_entry.setText(movie.title)
 
             checkbox.isChecked=movie.watched
 
@@ -42,7 +42,7 @@ class FavoritesActivity : AppCompatActivity() {
 
             val intent = Intent()
 
-            intent.putExtra(MainActivity.EXTRA_STRING, MovieList(edit_entry.text.toString(),checkbox.isChecked))
+            intent.putExtra(MainActivity.EXTRA_STRING, FavoriteMovie(edit_entry.text.toString(),false))
 
             setResult(Activity.RESULT_OK, intent)
 
@@ -71,7 +71,7 @@ class FavoritesActivity : AppCompatActivity() {
 
         val intent = Intent()
 
-        intent.putExtra(MainActivity.EXTRA_STRING, MovieList(getString(R.string.search_movie_by_name)))
+        intent.putExtra(MainActivity.EXTRA_STRING, FavoriteMovie(getString(R.string.search_movie_by_name), false))
 
         setResult(Activity.RESULT_CANCELED, intent)
 
